@@ -1,7 +1,8 @@
 import fs from "fs";
 import request from "request";
+import { createDirIfNotExists } from "./fs-helpers";
 
-export const downloadImage = async (uri: string, path: string, newFilename: string): Promise<any> => {
+export const downloadImage = async (uri: string, path: string, newFilename?: string): Promise<any> => {
     return new Promise((resolve, reject) => {
         if (!uri || !path) reject("Missing uri or path");
         request.head(uri, (err: any) => {
@@ -17,6 +18,12 @@ export const downloadImage = async (uri: string, path: string, newFilename: stri
                 savePath = `${path}/${newFilename}`;
             } else {
                 savePath = `${path}/${splitedUri.pop()}`;
+            }
+
+            createDirIfNotExists(path);
+
+            if (fs.existsSync(savePath)) {
+                reject("File already exists!");
             }
 
             const stream = request(uri).pipe(fs.createWriteStream(savePath));
