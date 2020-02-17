@@ -20,5 +20,10 @@
   "homepage": "https://github.com/JohanG2012/scrape-helpers#readme",
   "devDependencies": {
     "typescript": "^3.7.5"
+  },
+  "dependencies": {
+    "@types/node": "^13.7.1",
+    "@types/request": "^2.48.4",
+    "request": "^2.88.2"
   }
 }
