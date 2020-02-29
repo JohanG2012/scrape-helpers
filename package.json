@@ -28,6 +28,7 @@
     "@types/node-fetch": "^2.5.5",
     "@types/puppeteer": "^2.0.1",
     "@types/request": "^2.48.4",
+    "gm": "^1.23.1",
     "puppeteer": "^2.1.1",
     "request": "^2.88.2"
   }
