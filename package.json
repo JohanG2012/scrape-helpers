@@ -25,6 +25,7 @@
   "dependencies": {
     "@types/gm": "^1.18.7",
     "@types/node": "^13.7.1",
+    "@types/node-fetch": "^2.5.5",
     "@types/request": "^2.48.4",
     "request": "^2.88.2"
   }
