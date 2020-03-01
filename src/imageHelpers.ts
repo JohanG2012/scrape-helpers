@@ -1,4 +1,6 @@
 import gm from "gm";
+import Jimp from "jimp";
+import fs from "fs";
 
 export const getImageSize = (file: string): Promise<any> =>
   new Promise((resolve, reject) => {
@@ -24,4 +26,17 @@ export const resizeImage = (
         if (err) return reject(err);
         return resolve();
       });
+  });
+
+export const convertImage = async (
+  source: string,
+  dest: string,
+  removeOriginal?: boolean
+) =>
+  Jimp.read(source).then(image => {
+    image.write(dest);
+    if (removeOriginal && source !== dest) {
+      fs.unlinkSync(source);
+    }
+    return;
   });
