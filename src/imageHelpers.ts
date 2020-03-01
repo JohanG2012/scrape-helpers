@@ -14,8 +14,8 @@ export const getImageSize = (file: string): Promise<any> =>
 
 export const resizeImage = (
   path: string,
-  width: number,
-  height: number
+  width: any,
+  height: any
 ): Promise<any> =>
   new Promise((resolve, reject) => {
     gm(path)
